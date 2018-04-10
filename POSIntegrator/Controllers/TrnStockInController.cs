@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
 namespace POSIntegrator.Controllers
@@ -70,7 +68,7 @@ namespace POSIntegrator.Controllers
                         List<Entities.TrnStockIn> deserializedJson = jsonSerialiser.Deserialize<List<Entities.TrnStockIn>>(serializedJson);
                         using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                         {
-                            Console.WriteLine("Sending Header File [ " + headerFile + " ]...");
+                            Console.WriteLine("Sending IN Header File [ " + headerFile + " ]...");
                             streamWriter.Write(new JavaScriptSerializer().Serialize(deserializedJson));
                         }
 
@@ -148,7 +146,7 @@ namespace POSIntegrator.Controllers
                             List<Entities.TrnStockInItem> deserializedJson = jsonSerialiser.Deserialize<List<Entities.TrnStockInItem>>(serializedJson);
                             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                             {
-                                Console.WriteLine("Sending Item File [ " + itemFile + " ]...");
+                                Console.WriteLine("Sending IN Item File [ " + itemFile + " ]...");
                                 streamWriter.Write(new JavaScriptSerializer().Serialize(deserializedJson));
                             }
 

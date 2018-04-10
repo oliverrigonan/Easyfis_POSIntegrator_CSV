@@ -26,10 +26,12 @@ namespace POSIntegrator
             Console.WriteLine();
 
             Controllers.TrnStockInController stockIn = new Controllers.TrnStockInController();
+            Controllers.TrnSalesInvoiceController salesInvoice = new Controllers.TrnSalesInvoiceController();
 
             while (true)
             {
                 stockIn.SendStockInCSVFile(apiUrlHost);
+                salesInvoice.SendSalesInvoiceCSVFile(apiUrlHost);
                 Thread.Sleep(5000);
             }
         }
